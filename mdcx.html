@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fibonacci</title>
+</head>
+<script type="text/javascript">
+    function calcularMdc() {
+			
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+			
+			
+			while (b != 0) {
+				var r = a % b;
+				a = b;
+				b = r;
+			}
+			
+			document.getElementById("resultado").innerHTML = "O máximo divisor comum é: " + a;
+		}
+</script>
+<body>
+	<h1>Máximo Divisor Comum</h1>
+    <p>Digite os números inteiros:</p>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <button onclick="calcularMdc()">Calcular</button>
+    <p id="resultado"></p>
+    
+</body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contagem de Números Inteiros</title>
+</head>
+<body>
+    <h1>Contagem</h1>
+	<label for="numeros">Digite os números separados por vírgula:</label>
+	<input type="text" id="numeros">
+	<label for="n">Digite o valor de N:</label>
+	<input type="text" id="n">
+	<button onclick="contar()">Contar Números Inteiros</button>
+	<p id="resultado"></p>
+
+	<script>
+		function contar() {
+			var numeros = document.getElementById("numeros").value;
+			var n = document.getElementById("n").value;
+
+			// Converter a string de números separados por vírgula em um array de números inteiros
+			var arrayNumeros = numeros.split(",").map(Number);
+
+			// Ordenar o array de números em ordem crescente
+			arrayNumeros.sort(function(a, b){return a - b});
+
+			// Inicializar a contagem de números inteiros
+			var count = 0;
+
+			// Percorrer o array de números e contar quantos números inteiros existem até o valor N
+			for (var i = 0; i < arrayNumeros.length; i++) {
+				if (Number.isInteger(arrayNumeros[i]) && arrayNumeros[i] <= n) {
+					count++;
+				} else if (arrayNumeros[i] > n) {
+					break;
+				}
+			}
+
+			// Exibir o resultado da contagem
+			document.getElementById("resultado").innerHTML = "Existem " + count + " números inteiros entre o primeiro número do conjunto de dados e " + n + ".";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Soma de Números</title>
+</head>
+<script type="text/javascript" >
+function calcularSoma() {
+			
+			var numeros = document.getElementById("numeros").value.split(",");
+			
+			
+			var soma = 0;
+			
+			
+			for (var i = 0; i < numeros.length; i++) {
+				soma += parseFloat(numeros[i]);
+			}
+			
+			
+			document.getElementById("resultado").innerHTML = "A soma dos números é: " + soma;
+		}
+	</script>
+
+<body>
+    <h1>Soma de Números</h1>
+	<p>Digite os números separados por vírgula:</p>
+    <input type="text" id="numeros">
+    <button onclick="calcularSoma()">Calcular</button>
+    <p id="resultado"></p>
+    
+</body>
+
+
+
+
+
+</html>
