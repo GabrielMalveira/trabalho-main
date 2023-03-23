@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	
+<title>Verificar se um número é primo</title>
+	
+	
+<script type="text/javascript"> 
+
+function verificarPrimo() {
+			var numero = parseInt(document.getElementById("numero").value);
+			var resultado = document.getElementById("resultado");
+
+			// Verificar se o número é menor ou igual a 1
+			if (numero <= 1) {
+				resultado.innerHTML = "O número não é primo.";
+				return;
+			}
+
+			// Verificar se o número é igual a 2
+			if (numero == 2) {
+				resultado.innerHTML = "O número é primo.";
+				return;
+			}
+
+			// Verificar se o número é par
+			if (numero % 2 == 0) {
+				resultado.innerHTML = "O número não é primo.";
+				return;
+			}
+
+			// Percorrer todos os números ímpares a partir de 3 até a raiz quadrada do número
+			for (var i = 3; i <= Math.sqrt(numero); i += 2) {
+				if (numero % i == 0) {
+					resultado.innerHTML = "O número não é primo.";
+					return;
+				}
+			}
+
+			// Se chegou até aqui, o número é primo
+			resultado.innerHTML = "O número é primo.";
+		}
+	</script>
+</head>
+
+
+<body>
+	
+	
+<h1>Verificar se um número é primo</h1>
+	
+	
+<p>Digite um número inteiro positivo:</p>
+	
+	
+<input type="number" id="numero" min="1">
+	
+	
+<button type="button" onclick="verificarPrimo()">Verificar</button>
+	
+	
+<p id="resultado"></p>
+
+</body
+

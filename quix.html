@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ordenação</title>
+</head>
+<script type="text/javascript"> 
+    function quicksort() {
+        // Cria um array com números aleatórios
+        const array = [];
+        for (let i = 0; i < 10; i++) {
+          array.push(Math.floor(Math.random() * 100));
+        }
+        
+        // Exibe o array original
+        document.getElementById("array").innerHTML = "Array original: " + array;
+        
+        // Chama a função que implementa o algoritmo Quicksort
+        const sorted = sort(array);
+        
+        // Exibe o array ordenado
+        document.getElementById("sorted").innerHTML = "Array ordenado: " + sorted;
+      }
+
+      function sort(array) {
+        // Se o array tiver menos de dois elementos, ele já está ordenado
+        if (array.length < 2) {
+          return array;
+        }
+
+        // Escolhe um elemento como pivô (geralmente o primeiro elemento do array)
+        const pivot = array[0];
+        const left = [];
+        const right = [];
+
+        // Separa os elementos menores que o pivô à esquerda e os maiores à direita
+        for (let i = 1; i < array.length; i++) {
+          if (array[i] < pivot) {
+            left.push(array[i]);
+          } else {
+            right.push(array[i]);
+          }
+        }
+
+        // Concatena o array ordenado à esquerda, o pivô e o array ordenado à direita
+        return sort(left).concat(pivot, sort(right));
+      }
+
+</script>
+<body>
+<h1>Ordenação</h1>
+<p>Clique no botão abaixo para ordenar o array:</p>
+<button onclick="quicksort()">Ordenar</button>
+<p id="array"></p>
+<p id="sorted"></p>
+  
+  </body
